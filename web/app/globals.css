@@ -161,3 +161,10 @@ body {
 .animate-grain {
 	animation: grain 20s steps(10) infinite;
 }
+
+/* Custom mobile breakpoint for hiding elements below 500px */
+@media (max-width: 500px) {
+	.hide-below-500 {
+		display: none !important;
+	}
+}

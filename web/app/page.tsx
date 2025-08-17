@@ -213,7 +213,7 @@ export default function Page() {
                                         <option value="ru">RU</option>
                                     </select>
                                 </div>
-                                <SupportButton lang={lang} t={t} />
+                                <SupportButton lang={lang} t={t} className="hide-below-500" />
                                 <WaitlistButton lang={lang} t={t} compact />
                             </nav>
                         </div>
@@ -353,7 +353,8 @@ function WaitlistButton({ lang, t, compact }: { lang: LangKey, t: T, compact?: b
                 className={compact ? "btn-secondary px-4 py-2" : "btn-primary text-lg px-6 py-3"}
                 onClick={() => setOpen(true)}
             >
-                {t.cta}
+                <span className="md:hidden">Join</span>
+                <span className="hidden md:inline">{t.cta}</span>
             </button>
             {open && (
                 <Portal>
@@ -483,11 +484,11 @@ function WaitlistModal({ lang, t, onClose }: { lang: LangKey, t: T, onClose: () 
 }
 
 
-function SupportButton({ lang, t }: { lang: LangKey, t: T }) {
+function SupportButton({ lang, t, className }: { lang: LangKey, t: T, className?: string }) {
     const [open, setOpen] = useState(false)
     return (
         <>
-            <button className="btn-secondary px-6 py-3" onClick={() => setOpen(true)}>{t.support}</button>
+            <button className={`btn-secondary px-6 py-3 ${className || ''}`} onClick={() => setOpen(true)}>{t.support}</button>
             {open && (
                 <Portal>
                     <SupportModal lang={lang} t={t} onClose={() => setOpen(false)} />
