@@ -53,7 +53,7 @@ const privacyDict = {
         changesDesc: 'Мы можем обновлять политику. Дата обновления всегда будет указана выше.',
         backToHome: '← Назад на главную',
         language: 'Язык'
-      }
+    }
 }
 
 type LangKey = keyof typeof privacyDict

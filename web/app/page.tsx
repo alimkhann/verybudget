@@ -58,7 +58,7 @@ const dict = {
     },
     ru: {
         brand: 'VERYBUDGET',
-        headline: 'Бюджетируй умнее. Копи больше.',
+        headline: 'Управляй бюджетом умнее. Экономь больше.',
         subhead: 'Следи за расходами за пару минут и смотри, как растут твои сбережения. Приложение для студентов с весёлой «аквариумной» атмосферой.',
         cta: 'Записаться в лист ожидания',
         support: 'Задать вопрос',
@@ -123,36 +123,35 @@ function useLang(): [LangKey, (l: LangKey) => void] {
 function BackgroundGraphic() {
     return (
         <div className="absolute inset-0 -z-10 overflow-hidden">
-            <svg
-                width="100%"
-                height="100%"
-                viewBox="0 0 1600 900"
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-full w-full object-cover"
-                preserveAspectRatio="xMidYMid slice"
-                aria-hidden
-            >
-                <defs>
-                    <radialGradient id="glowA" cx="50%" cy="50%" r="50%">
-                        <stop offset="0%" stopColor="#8BE9DC" stopOpacity="0.45" />
-                        <stop offset="100%" stopColor="#2BBBAD" stopOpacity="0" />
-                    </radialGradient>
-                    <radialGradient id="glowB" cx="25%" cy="25%" r="50%">
-                        <stop offset="0%" stopColor="#FFC1B8" stopOpacity="0.35" />
-                        <stop offset="100%" stopColor="#FF6F61" stopOpacity="0" />
-                    </radialGradient>
-                    <radialGradient id="glowC" cx="70%" cy="70%" r="50%">
-                        <stop offset="0%" stopColor="#B8D0FF" stopOpacity="0.3" />
-                        <stop offset="100%" stopColor="#1B2B4A" stopOpacity="0" />
-                    </radialGradient>
-                </defs>
-                <circle cx="800" cy="450" r="400" fill="url(#glowA)" />
-                <circle cx="500" cy="300" r="300" fill="url(#glowB)" />
-                <circle cx="1100" cy="600" r="300" fill="url(#glowC)" />
-            </svg>
+            {/* Main ocean-like blurred orbs with enhanced animations */}
+            <div
+                className="pointer-events-none absolute -top-20 -left-20 h-[80vh] w-[80vh] rounded-[50%] bg-gradient-to-br from-[#8BE9DC] via-[#7DD3C7] to-[#6BCFBA] opacity-40 orb animate-ocean-float animate-orb-color"
+                style={{ ['--orb-blur' as any]: '64px' }}
+            />
+            <div
+                className="pointer-events-none absolute top-[10%] -right-20 h-[85vh] w-[85vh] rounded-[50%] bg-gradient-to-bl from-[#FFC1B8] via-[#FFB3A7] to-[#FF9B8F] opacity-35 orb animate-ocean-float animate-orb-color"
+                style={{ animationDelay: '4s', ['--orb-blur' as any]: '64px' }}
+            />
+            <div
+                className="pointer-events-none absolute bottom-[-5%] left-[25%] h-[75vh] w-[75vh] rounded-[50%] bg-gradient-to-tr from-[#B8D0FF] via-[#A5C0FF] to-[#8FB0FF] opacity-30 orb animate-ocean-float animate-orb-color"
+                style={{ animationDelay: '8s', ['--orb-blur' as any]: '56px' }}
+            />
+
+            {/* Additional accent orbs with enhanced movement */}
+            <div
+                className="pointer-events-none absolute top-[50%] left-[5%] h-[45vh] w-[45vh] rounded-[50%] bg-gradient-to-r from-[#FFE5B8] to-[#FFD700] opacity-25 orb animate-ocean-float animate-orb-color"
+                style={{ animationDelay: '2s', ['--orb-blur' as any]: '48px' }}
+            />
+            <div
+                className="pointer-events-none absolute top-[5%] left-[50%] h-[40vh] w-[40vh] rounded-[50%] bg-gradient-to-br from-[#E6B8FF] to-[#D4A5FF] opacity-20 orb animate-ocean-float animate-orb-color"
+                style={{ animationDelay: '6s', ['--orb-blur' as any]: '48px' }}
+            />
+
+
         </div>
     )
 }
+
 
 function EmailCounter({ lang }: { lang: LangKey }) {
     const [count, setCount] = useState(0)

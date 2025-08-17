@@ -39,7 +39,7 @@ const termsDict = {
         contactDesc: 'Вопросы? Пишите на',
         backToHome: '← Назад на главную',
         language: 'Язык'
-      }
+    }
 }
 
 type LangKey = keyof typeof termsDict
