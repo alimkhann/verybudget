@@ -1,5 +1,6 @@
 .cursor
 *.txt
+*.cursorignore
 
 # Dependencies
 node_modules/
